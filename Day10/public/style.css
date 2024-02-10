@@ -1,0 +1,17 @@
+.container {
+	margin: 30px;
+	padding: 20px;
+	border-radius: 6px;
+	border: 4px ridge rgba(219, 58, 82, 0.6);
+	background-color: #fff;
+	box-shadow: 0 0 17px #2ed5a0;
+}
+
+h1,
+h3 {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
