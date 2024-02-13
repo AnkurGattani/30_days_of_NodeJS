@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Day 13/30 - Web Socket</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+	<div class="container" 
+		style="height: 100vh;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;">
+			<h2>🚀 Day 13/30 of NodeJS challenge 🚀</h2>
+			<input type="text" id="messageInput" placeholder="Type your message" 
+				style="margin: 20px;
+				padding: 5px;
+				height: 100px;
+				width: 200px;
+				font-size: medium;">
+
+			<button onclick="sendMessageToServer()" 
+				style="background-color: rgb(0, 106, 255);
+				color: #fff;
+				height: 40px;
+				width: 120px;
+				border-radius: 6px;
+				cursor: pointer;"> Send Message
+			</button>
+	</div>
+
+	<script>
+		const socket = new WebSocket('ws://localhost:3300');
+		socket.onopen = () => (console.log("WebSocket Connection established."));
+		socket.onmessage = (message) => console.log('Received message: ', message.data);
+		socket.onclose = () => (console.log("WebSocket Connection closed.")); 
+
+		function sendMessageToServer() {
+			let message = document.getElementById('messageInput').value;
+			socket.send(message);
+			console.log(message);
+		}
+	</script>
+
+</body>
+</html>
